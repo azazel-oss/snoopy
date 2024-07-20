@@ -18,7 +18,8 @@ export const { auth, signIn, signOut } = NextAuth({
           const { email, password } = partialCredentials.data
           const user = await getUser(email)
           if (!user) return null
-          const passwordsMatch = user.password === password
+          const passwordsMatch = await bcrypt.compare(password, user.password)
+          console.log(user)
           if (passwordsMatch) return user
         }
         console.log('Invalid credentials')

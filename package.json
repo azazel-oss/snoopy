@@ -12,12 +12,15 @@
     "@heroicons/react": "^2.1.5",
     "@tailwindcss/forms": "^0.5.7",
     "@vercel/postgres": "^0.9.0",
+    "autoprefixer": "10.4.19",
     "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
-    "next": "15.0.0-canary.61",
+    "next": "15.0.0-canary.74",
     "next-auth": "5.0.0-beta.19",
-    "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "react": "19.0.0-rc-512b09b2-20240718",
+    "react-dom": "19.0.0-rc-512b09b2-20240718",
+    "tailwindcss": "3.4.4",
+    "use-debounce": "^10.0.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -30,5 +33,8 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": "20.15.0"
   }
 }
