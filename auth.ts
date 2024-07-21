@@ -1,15 +1,18 @@
 import NextAuth from 'next-auth'
-import { authConfig } from './auth.config'
 import Credentials from 'next-auth/providers/credentials'
 import { z } from 'zod'
+import { authConfig } from '@/auth.config'
 import type { User } from '@/app/lib/definitions'
 import { sql } from '@vercel/postgres'
-import bcrypt from 'bcrypt'
 
-export const { auth, signIn, signOut } = NextAuth({
+export const { auth, signIn, signOut, handlers } = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
+      credentials: {
+        email: {},
+        password: {},
+      },
       async authorize(credentials) {
         const partialCredentials = z
           .object({ email: z.string().email(), password: z.string().min(6) })
@@ -18,7 +21,7 @@ export const { auth, signIn, signOut } = NextAuth({
           const { email, password } = partialCredentials.data
           const user = await getUser(email)
           if (!user) return null
-          const passwordsMatch = await bcrypt.compare(password, user.password)
+          const passwordsMatch = user.password === password
           console.log(user)
           if (passwordsMatch) return user
         }
