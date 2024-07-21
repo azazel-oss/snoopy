@@ -16,6 +16,7 @@ export default function RootLayout({
               width={700}
               height={700}
               alt="Snoopy logo image"
+              priority
             />
           </div>
         </section>

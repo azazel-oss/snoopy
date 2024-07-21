@@ -18,6 +18,7 @@ export default function SideNav() {
           alt="snoopy logo image"
           width={400}
           height={400}
+          priority
         />
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
