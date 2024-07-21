@@ -1,8 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import NavLinks from '@/app/ui/nav-links'
 import { PowerIcon } from '@heroicons/react/24/outline'
-import { signOut } from '@/auth'
+import { signOut } from 'next-auth/react'
 
 export default function SideNav() {
   return (
@@ -22,9 +24,8 @@ export default function SideNav() {
         <NavLinks />
         <div className="hidden h-auto w-full grow rounded-md bg-logo-bg-light md:block"></div>
         <form
-          action={async () => {
-            'use server'
-            await signOut()
+          action={() => {
+            signOut()
           }}
         >
           <button className="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-logo-bg-light p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
