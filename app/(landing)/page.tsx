@@ -9,14 +9,20 @@ export default function Home() {
         className={`${inter.className} flex flex-col gap-32 font-black text-9xl text-center`}
       >
         <section>
-          Let&apos;s get <span className="text-red-600">snoopin&apos;</span>
+          Let&apos;s get{' '}
+          <span className="text-app-red-secondary">snoopin&apos;</span>
         </section>
-        <section className="flex gap-40 text-xl justify-center">
+        <section className="flex gap-20 text-xl justify-center">
           <Link href={'/dashboard'}>
             <Button className="inline px-7 p-7">Dashboard</Button>
           </Link>
           <Link href={'/login'}>
             <Button className="inline px-7 p-7">Login</Button>
+          </Link>
+          <Link href={'/register'}>
+            <Button className="inline px-7 p-7 bg-app-red-secondary">
+              Register
+            </Button>
           </Link>
         </section>
       </div>
