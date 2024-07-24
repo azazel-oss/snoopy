@@ -6,6 +6,7 @@ import NavLinks from '@/app/ui/nav-links'
 import { ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline'
 import { signOut } from 'next-auth/react'
 import Search from '@/app/ui/search'
+import { Suspense } from 'react'
 
 export default function SideNav() {
   return (
@@ -23,7 +24,9 @@ export default function SideNav() {
         />
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
-        <Search placeholder="Search people" />
+        <Suspense>
+          <Search placeholder="Search people" />
+        </Suspense>
         <NavLinks />
         <div className="hidden h-auto w-full grow rounded-md bg-logo-bg-light md:block"></div>
         <form

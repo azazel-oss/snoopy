@@ -14,13 +14,17 @@ export default function Home() {
         </section>
         <section className="flex gap-20 text-xl justify-center">
           <Link href={'/dashboard'}>
-            <Button className="inline px-7 p-7">Dashboard</Button>
+            <Button className="inline px-7 p-7 bg-black hover:bg-logo-bg-light">
+              Dashboard
+            </Button>
           </Link>
           <Link href={'/login'}>
-            <Button className="inline px-7 p-7">Login</Button>
+            <Button className="inline px-7 p-7 bg-black hover:bg-logo-bg-light">
+              Login
+            </Button>
           </Link>
           <Link href={'/register'}>
-            <Button className="inline px-7 p-7 bg-app-red-secondary">
+            <Button className="inline px-7 p-7 bg-app-red-secondary hover:bg-logo-bg-light">
               Register
             </Button>
           </Link>

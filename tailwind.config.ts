@@ -18,7 +18,7 @@ const config: Config = {
           600: '#2F6FEB',
         },
         'logo-bg-light': 'rgb(228,228,228)',
-        'app-red-secondary': 'rgb(220,38,38)',
+        'app-red-secondary': '#dc2626',
       },
     },
     keyframes: {

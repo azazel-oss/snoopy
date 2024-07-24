@@ -84,7 +84,7 @@ function LoginButton() {
   const { pending: isPending } = useFormStatus()
   return (
     <Button
-      className="mt-4 w-full hover:bg-app-red-secondary hover:text-white"
+      className="mt-4 w-full bg-black hover:bg-app-red-secondary hover:text-white"
       aria-disabled={isPending}
     >
       Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
