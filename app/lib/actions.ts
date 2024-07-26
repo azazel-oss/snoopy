@@ -85,3 +85,34 @@ export async function createUser(prevState: State, formData: FormData) {
 
   redirect('/dashboard/')
 }
+
+export async function fetchQueryResults(query: string) {
+  const QuerySchema = z.string().min(1)
+  const validatedQuery = QuerySchema.safeParse(query)
+  if (!validatedQuery.success) {
+    return {
+      success: false,
+      data: [],
+      message: validatedQuery.error.flatten().fieldErrors,
+    }
+  }
+  const validatedSearchQuery = validatedQuery.data
+  try {
+    const data = await sql`
+      SELECT * FROM users 
+      WHERE lower(name) like '%'||${validatedSearchQuery}||'%'
+    `
+    return {
+      success: true,
+      data: data.rows,
+      message: '',
+    }
+  } catch (err) {
+    console.error(err)
+    return {
+      success: false,
+      data: [],
+      message: 'Something went wrong',
+    }
+  }
+}
