@@ -3,7 +3,7 @@ import { User } from '@/app/lib/definitions'
 
 export default function SearchResult({ user }: { user: User }) {
   return (
-    <div className="flex">
+    <div className="flex gap-4">
       <Image
         src={'/avatar_img_14.png'}
         alt={`${user.name} avatar image`}
@@ -12,7 +12,7 @@ export default function SearchResult({ user }: { user: User }) {
         className="rounded-full"
       />
       <div>
-        <div>{user.name}</div>
+        <div className="font-bold">{user.name}</div>
         <div>{user.email}</div>
       </div>
     </div>

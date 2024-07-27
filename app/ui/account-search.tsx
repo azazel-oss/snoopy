@@ -7,13 +7,15 @@ export default async function AccountSearch({ query }: { query: string }) {
   return (
     <>
       <div className="text-3xl font-bold mb-4">Search Results</div>
-      {data && data.length > 0 ? (
-        data.map(account => (
-          <SearchResult user={account as User} key={account.id} />
-        ))
-      ) : (
-        <div>None of the accounts matched the search query</div>
-      )}
+      <div className="flex flex-col gap-5">
+        {data && data.length > 0 ? (
+          data.map(account => (
+            <SearchResult user={account as User} key={account.id} />
+          ))
+        ) : (
+          <div>None of the accounts matched the search query</div>
+        )}
+      </div>
     </>
   )
 }

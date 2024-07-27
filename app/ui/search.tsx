@@ -5,12 +5,11 @@ import { XCircleIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { Button } from '@/app/ui/button'
 import { useDebouncedCallback } from 'use-debounce'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 export default function Search({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams()
   const [showButton, setShowButton] = useState(!searchParams.has('query'))
-  const pathname = usePathname()
   const { replace } = useRouter()
   const handleSearch = useDebouncedCallback(term => {
     const params = new URLSearchParams(searchParams)
@@ -19,7 +18,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     } else {
       params.delete('query')
     }
-    replace(`${pathname}?${params.toString()}`)
+    replace(`/dashboard?${params.toString()}`)
   }, 300)
   return (
     <div className="relative flex flex-shrink-0">
@@ -44,11 +43,12 @@ export default function Search({ placeholder }: { placeholder: string }) {
             maxLength={18}
             onChange={e => handleSearch(e.target.value)}
             defaultValue={searchParams.get('query')?.toString()}
+            autoFocus
           />
           <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-app-red-secondary" />
           <XCircleIcon
             onClick={() => {
-              replace(`${pathname}`)
+              replace(`/dashboard`)
               setShowButton(true)
             }}
             className="absolute right-3 top-1/2 h-[18px] hover:cursor-pointer w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-app-red-secondary"
