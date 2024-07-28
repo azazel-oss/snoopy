@@ -17,6 +17,6 @@ To run the development server, install pnpm and run:
 pnpm dev
 ```
 
-## Contributions
+## Contributing
 
 Contributions are welcome but only after I get a job.
