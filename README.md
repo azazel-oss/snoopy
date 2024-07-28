@@ -2,7 +2,7 @@
 
 ## Description
 
-Snoopy is a chatting webapp which uses next-js as its core framework. You can create your own profile, add new contacts, register yourself. For the database I am using the inbuilt vercel/postgres database, and tailwind for styling. This project also uses typescript for better type checking and consistency.
+Snoopy is a chatting webapp which uses next-js as its core framework. You can create your own profile, add new contacts, register yourself. For the database I am using the inbuilt vercel/postgres database, and tailwind for styling. This project also uses typescript for better type checking and consistency. This app also uses next-auth@beta for managing user auth.
 
 ## Motivation
 
